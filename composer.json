@@ -1,0 +1,15 @@
+{
+    "name" : "futoin/core-php-api",
+    "version" : "0.1",
+    "description" : "FutoIn Core API for PHP",
+    "authors" : [
+        {
+            "name" : "Andrey Galkin",
+            "email" : "andrey@futoin.eu"
+        }
+    ],
+    "license" : "Apache-2.0",
+    "homepage" : "http://futoin.org",
+    "require" : {
+    }
+}
