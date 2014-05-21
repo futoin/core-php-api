@@ -16,6 +16,12 @@ interface Log
     public function msgf( $lvl, $fmt, $args );
     public function msgs( $lvl );
 
+    public function debug( $msg );
+    public function info( $msg );
+    public function warn( $msg );
+    public function error( $msg );
+    public function security( $msg );
+
     public function debugf( $fmt, $args );
     public function infof( $fmt, $args );
     public function warnf( $fmt, $args );
