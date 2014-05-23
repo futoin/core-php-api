@@ -11,5 +11,10 @@
     "license" : "Apache-2.0",
     "homepage" : "http://futoin.org",
     "require" : {
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
     }
 }

@@ -13,4 +13,5 @@ class Error extends Exception
     const UnknownInterface = "UnknownInterface";
     const NotSupportedVersion = "NotSupportedVersion";
     const InvalidRequest = "InvalidRequest";
+    const SecurityError = "SecurityError";
 }

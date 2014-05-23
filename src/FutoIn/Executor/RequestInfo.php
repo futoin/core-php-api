@@ -17,4 +17,6 @@ interface RequestInfo {
     public function rawoutput();
     public function context();
     public function ccm();
+    public function rawRequest();
+    public function rawResponse();
 }
