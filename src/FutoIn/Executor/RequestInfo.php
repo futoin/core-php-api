@@ -3,9 +3,9 @@
 namespace FutoIn\Executor;
 
 interface RequestInfo {
-    public function request();
-    public function response();
-    public function info();
+    public function &request();
+    public function &response();
+    public function &info();
     public function error( $name );
     public function getSecurityLevel();
     public function getUser();
@@ -17,6 +17,6 @@ interface RequestInfo {
     public function rawoutput();
     public function context();
     public function ccm();
-    public function rawRequest();
-    public function rawResponse();
+    public function &rawRequest();
+    public function &rawResponse();
 }
