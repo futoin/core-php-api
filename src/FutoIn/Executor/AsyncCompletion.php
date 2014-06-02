@@ -2,9 +2,10 @@
 
 namespace FutoIn\Executor;
 
-interface AsyncCompletion {
-    public function parent();
-    public function error( name );
-    public function complete();
-    public function checkAlive();
+interface AsyncCompletion
+    extends \FutoIn\AsyncSteps
+{
+    public function reqinfo();
+    public function completeReq();
+    public function checkReqAlive();
 }

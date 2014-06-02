@@ -10,4 +10,5 @@ interface InterfaceInfo
     public function inherits();
     public function funcs();
     public function constraints();
+
 }
