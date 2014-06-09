@@ -14,4 +14,5 @@ class Error extends Exception
     const NotSupportedVersion = "NotSupportedVersion";
     const InvalidRequest = "InvalidRequest";
     const SecurityError = "SecurityError";
+    const Timeout = "Timeout";
 }
