@@ -4,7 +4,7 @@ namespace FutoIn;
 
 interface AsyncSteps
 {
-    public function add( callable $func, callable $onerror );
+    public function add( callable $func, callable $onerror=null );
     public function parallel( callable $onerror=null );
     public function state();
     public function success();

@@ -2,7 +2,7 @@
 
 namespace FutoIn;
 
-class Error extends Exception
+class Error extends \Exception
 {
     const ConnectError = "ConnectError";
     const CommError = "CommError";
