@@ -3,6 +3,15 @@
 namespace FutoIn\Executor;
 
 interface RequestInfo {
+    const X509_CN = "X509_CN";
+    const PUBKEY = "PUBKEY";
+    const CLIENT_ADDR = "CLIENT_ADDR";
+    const USER_AGENT = "USER_AGENT";
+    const COOKIES = "COOKIES";
+    const SECURE_CHANNEL = "SECURE_CHANNEL";
+    const UPLOAD_FILES = "UPLOAD_FILES";
+    const REQUEST_TIME_FLOAT = "REQUEST_TIME_FLOAT";
+
     const SL_ANONYMOUS = "Anonymous";
     const SL_INFO = "Info";
     const SL_SAFEOPS = "SafeOps";
@@ -18,7 +27,6 @@ interface RequestInfo {
     public function getUser();
     public function getSourceAddress();
     public function getDerivedKey();
-    public function async();
     public function log();
     public function files();
     public function rawoutput();
@@ -26,4 +34,5 @@ interface RequestInfo {
     public function ccm();
     public function &rawRequest();
     public function &rawResponse();
+    public function ignoreInvokeAbort( $ignore = true );
 }
