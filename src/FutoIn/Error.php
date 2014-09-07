@@ -1,9 +1,17 @@
 <?php
+/**
+ * @package FutoIn\Core\PHP\API
+ * @copyright 2014 FutoIn Project (http://futoin.org)
+ * @author Andrey Galkin
+ */
+
 
 namespace FutoIn;
 
 /**
- * \brief FutoIn exception class
+ * FutoIn exception class
+ *
+ * @api
  *
  * \warning It specification is not final yet
  */
