@@ -1,5 +1,7 @@
 <?php
 /**
+ * FutoIn AsyncSteps interface definition
+ *
  * @package FutoIn\Core\PHP\API
  * @copyright 2014 FutoIn Project (http://futoin.org)
  * @author Andrey Galkin
@@ -89,7 +91,7 @@ interface AsyncSteps
     /**
      * Copy steps from other AsyncSteps, useful for sub-step cloning
      *
-     * @param AsyncSteps other Object to copy from
+     * @param AsyncSteps $other Object to copy from
      * @return reference to $this
      * \note Please see the specification for more information
      */
@@ -102,21 +104,26 @@ interface AsyncSteps
 
     /**
      * state() access through AsyncSteps interface / set value
+     * @param $name State variable name
+     * @param $value State variable value
      */
     public function __set( $name, $value );
     
     /**
      * state() access through AsyncSteps interface / get value
+     * @param $name State variable name
      */
     public function &__get( $name );
     
     /**
      * state() access through AsyncSteps interface / check value
+     * @param $name State variable name
      */
     public function __isset( $name );
     
     /**
      * state() access through AsyncSteps interface / delete value
+     * @param $name State variable name
      */
     public function __unset( $name );
 }
