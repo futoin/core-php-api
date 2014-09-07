@@ -2,6 +2,11 @@
 
 namespace FutoIn;
 
+/**
+ * \brief FutoIn exception class
+ *
+ * \warning It specification is not final yet
+ */
 class Error extends \Exception
 {
     const ConnectError = "ConnectError";

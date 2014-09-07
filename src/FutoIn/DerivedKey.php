@@ -2,6 +2,9 @@
 
 namespace FutoIn;
 
+/**
+ * \warning DO NOT USE - IT WILL CHANGE
+ */
 interface DerivedKey
 {
     public function getRaw();

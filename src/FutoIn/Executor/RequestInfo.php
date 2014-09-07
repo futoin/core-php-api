@@ -2,6 +2,9 @@
 
 namespace FutoIn\Executor;
 
+/**
+ * \warning DO NOT USE - IT WILL CHANGE
+ */
 interface RequestInfo {
     const X509_CN = "X509_CN";
     const PUBKEY = "PUBKEY";

@@ -2,6 +2,9 @@
 
 namespace FutoIn\Executor;
 
+/**
+ * \warning DO NOT USE - IT WILL CHANGE
+ */
 interface SourceAddress {
     const IPv4 = "IPv4";
     const IPv6 = "IPv6";

@@ -2,6 +2,9 @@
 
 namespace FutoIn\Invoker;
 
+/**
+ * \warning DO NOT USE - IT WILL CHANGE
+ */
 interface DerivedKeyCall
 {
     public function __construct( $iface );
