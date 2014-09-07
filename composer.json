@@ -12,6 +12,9 @@
     "homepage" : "http://futoin.org",
     "require" : {
     },
+    "require-dev : {
+        "phpdocumentor/phpdocumentor": "2.*"
+    },
     "autoload": {
         "psr-0": {
             "FutoIn\\": "src/"
