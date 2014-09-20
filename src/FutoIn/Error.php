@@ -14,8 +14,6 @@ namespace FutoIn;
  * FutoIn exception class
  *
  * @api
- *
- * \warning It specification is not final yet
  */
 class Error extends \Exception
 {
