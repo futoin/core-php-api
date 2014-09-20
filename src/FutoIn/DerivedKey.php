@@ -14,7 +14,7 @@ namespace FutoIn;
  *   and/or even placed into special secure memory region
  *   and/or places in special security module like HSM or TPM
  *
- * @see http://specs.futoin.org/final/preview/ftn6_iface_executor_concept-1.0.html
+ * @see http://specs.futoin.org/final/preview/ftn6_iface_executor_concept-1.html
  * @api
  */
 interface DerivedKey
@@ -26,13 +26,13 @@ interface DerivedKey
      * Get Unique ID or master secret
      * @return string ID
      */
-    public function getBaseID();
+    public function baseID();
     
     /**
      * Get Derived key ID a.k.a. Sequence ID
      * @return string ID
      */
-    public function getSequenceID();
+    public function sequenceID();
     
     /**
      * Encrypt small chunk of data using the derived key
