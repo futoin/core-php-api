@@ -32,7 +32,7 @@ interface NativeInterface
      * Get interface info
      * @return \FutoIn\InterfaceInfo
      */
-    public function iface();
+    public function ifaceInfo();
     
     /**
      * Call FutoIn interface function with file stream to upload.
