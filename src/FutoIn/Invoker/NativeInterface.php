@@ -15,7 +15,7 @@ namespace FutoIn\Invoker;
  * @see http://specs.futoin.org/final/preview/ftn7_iface_invoker_concept-1.html
  * @api
  */
-interface Iface
+interface NativeInterface
 {
     /**
      * Call FutoIn interface function.
