@@ -35,16 +35,6 @@ interface NativeInterface
     public function ifaceInfo();
     
     /**
-     * Call FutoIn interface function with file stream to upload.
-     * Result is passed through AsyncSteps.success( result )
-     *
-     * @param AsyncSteps $as AsyncSteps object
-     * @param map $params Parameters to pass to Executor
-     * @return void
-     */
-    public function callData( \FutoIn\AsyncSteps $as, $name, $params, array $upload_data );
-    
-    /**
      * Get FTN10 Burst Call interface
      * @return BurstControl interface
      */
