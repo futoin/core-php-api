@@ -41,11 +41,8 @@ interface NativeInterface
     public function burst();
     
     /**
-     * PHP-specific call operator overloading
-     *
-     * @param $name function to call (automatically passed)
-     * @param $args [0] - AsyncSteps [1] - $params
-     * @return void
+     * Get iface wrapper with derived key accessor
+     * @return \FutoIn\Invoker\DerivedKeyAccessor
      */
-    public function __call( $name, $args );
+    public function bindDerivedKey( \FutoIn\AsyncSteps $as );
 }
