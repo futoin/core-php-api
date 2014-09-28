@@ -29,9 +29,7 @@ interface RequestInfo {
     const INFO_COOKIES = "COOKIES";
     /** boolean - is request coming through secure channel? */
     const INFO_SECURE_CHANNEL = "SECURE_CHANNEL";
-    /** map of upload_name -> file stream */
-    const INFO_UPLOAD_FILES = "UPLOAD_FILES";
-    /** platform-specific reference of request creation time */
+    /** platform-specific timestamp of request processing start */
     const INFO_REQUEST_TIME_FLOAT = "REQUEST_TIME_FLOAT";
     /** one of pre-defined security levels (auth levels) of current processing */
     const INFO_SECURITY_LEVEL = "SECURITY_LEVEL";
@@ -74,7 +72,7 @@ interface RequestInfo {
     public function error( $name );
     
     /**
-     * Get derived key used for current request
+     * Get derived key used for current request. Can be null
      * @return void
      */
     public function derivedKey();
@@ -86,14 +84,14 @@ interface RequestInfo {
     public function log();
     
     /**
-     * @return raw input stream
+     * @return return raw input stream or null, if FutoIn request comes in that stream
      */
-    public function rawinput();
+    public function rawInput();
     
     /**
-     * @return raw output stream
+     * @return return raw output stream (no result variables are expected)
      */
-    public function rawoutput();
+    public function rawOutput();
     
     /**
      * Get reference to Executor

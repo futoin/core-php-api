@@ -35,28 +35,12 @@ interface DerivedKey
     public function sequenceID();
     
     /**
-     * Encrypt small chunk of data using the derived key
-     * @param string $data Data to encrypt
-     * @return encrypted string
-     * @see SMALL_CHANK
-     */
-    public function encrypt( $data );
-    
-    /**
-     * Decrypt small chunk of data using the derived key
-     * @param string $data Data to encrypt
-     * @return void
-     * @see SMALL_CHANK
-     */
-    public function decrypt( $data );
-    
-    /**
      * Encrypt data using the derived key
      * @param string $data Data to encrypt
      * @return void
      * @see SMALL_CHANK
      */
-    public function encryptAsync( AsyncSteps $as, $data );
+    public function encrypt( AsyncSteps $as, $data );
     
     /**
      * Decrypt data using the derived key
@@ -64,5 +48,5 @@ interface DerivedKey
      * @return void
      * @see SMALL_CHANK
      */
-    public function decryptAsync( AsyncSteps $as, $data );
+    public function decrypt( AsyncSteps $as, $data );
 }
