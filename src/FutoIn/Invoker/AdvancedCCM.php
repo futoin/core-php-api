@@ -21,4 +21,14 @@ namespace FutoIn\Invoker;
  */
 interface AdvancedCCM extends SimpleCCM
 {
+    /**
+     * initialized from cache (no need to register interfaces)
+     * @returns boolean true, if successfully loaded
+     */
+    public function initRegFromCache();
+    
+    /**
+     * Call after all registrations are done to cache them
+     */
+    public function cacheReg();
 }
