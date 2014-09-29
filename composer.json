@@ -1,6 +1,6 @@
 {
     "name" : "futoin/core-php-api",
-    "version" : "0.2.1",
+    "version" : "0.3",
     "description" : "FutoIn Core API for PHP",
     "authors" : [
         {
