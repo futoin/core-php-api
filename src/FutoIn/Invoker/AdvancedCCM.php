@@ -30,6 +30,7 @@ interface AdvancedCCM extends SimpleCCM
     
     /**
      * Call after all registrations are done to cache them
+     * @param $as AsyncSteps instance
      */
-    public function cacheReg();
+    public function cacheReg( \FutoIn\AsyncSteps $as );
 }
