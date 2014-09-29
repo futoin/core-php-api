@@ -45,6 +45,11 @@ interface AsyncSteps
      * @param ... Any passed argument is used as input for the next step
      */
     public function success( /* results */ );
+  
+    /**
+     * Call success() or add sub-step with success() depending on presence of other sub-steps
+     */
+    public function successStep();
     
     /**
      * PHP-specific alias for success()
@@ -58,7 +63,7 @@ interface AsyncSteps
      * \note Please see the specification for constraints
      * \see \FutoIn\Error
      */
-    public function error( $name );
+    public function error( $name, $error_info=null );
     
     /**
      * Access AsyncSteps state object
