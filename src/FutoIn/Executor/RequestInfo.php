@@ -113,7 +113,7 @@ interface RequestInfo {
      * [un]mark request as ready to be canceled on Invoker abort (disconnect)
      * @param boolean $ignore Ignore user abort (yes/no)
      */
-    public function ignoreInvokeAbort( $ignore = true );
+    public function ignoreInvokerAbort( $ignore = true );
     
     /**
      * Set HTTP response headers, should not be used in regular processing
