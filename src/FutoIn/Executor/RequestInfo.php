@@ -66,12 +66,6 @@ interface RequestInfo {
     public function info();
     
     /**
-     * Set request error and raise exception to complete execution
-     * @return void
-     */
-    public function error( $name );
-    
-    /**
      * Get derived key used for current request. Can be null
      * @return void
      */
