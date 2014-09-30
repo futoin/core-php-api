@@ -35,6 +35,12 @@ interface RequestInfo {
     const INFO_SECURITY_LEVEL = "SECURITY_LEVEL";
     /** user information object */
     const INFO_USER_INFO = "USER_INFO";
+    /**  raw request object */
+    const INFO_RAW_REQUEST = "RAW_REQUEST";
+    /** raw response object */
+    const INFO_RAW_RESPONSE = "RAW_RESPONSE";
+    /** derived key object */
+    const INFO_DERIVED_KEY = "DERIVED_KEY";
 
     /** Security Levels - no authenticated */
     const SL_ANONYMOUS = "Anonymous";
@@ -66,18 +72,6 @@ interface RequestInfo {
     public function info();
     
     /**
-     * Get derived key used for current request. Can be null
-     * @return void
-     */
-    public function derivedKey();
-    
-    /**
-     * Shortcut for ccm()->iface( "#log" )
-     * @return Advanced Native Log system interface (FTN3)
-     */
-    public function log();
-    
-    /**
      * @return return raw input stream or null, if FutoIn request comes in that stream
      */
     public function rawInput();
@@ -94,32 +88,8 @@ interface RequestInfo {
     public function context();
     
     /**
-     * Alias for context()->ccm()
-     * @return \FutoIn\Invoker\AdvancedCCM
-     */
-    public function ccm();
-    
-    /**
-     * @return request object, representing FutoIn message
-     */
-    public function rawRequest();
-    
-    /**
-     * @return response object, representing FutoIn message
-     */
-    public function rawResponse();
-    
-    /**
      * [un]mark request as ready to be canceled on Invoker abort (disconnect)
      * @param boolean $ignore Ignore user abort (yes/no)
      */
     public function ignoreInvokerAbort( $ignore = true );
-    
-    /**
-     * Set HTTP response headers, should not be used in regular processing
-     * @param string $name HTTP header name
-     * @param string $name HTTP header value
-     * @param boolean $override Should any previously set header with the same $name be overridden?
-     */
-    public function http_header( $name, $value, $override=true );
 }
