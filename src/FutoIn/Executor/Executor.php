@@ -28,7 +28,7 @@ interface Executor {
      * @param string|InterfaceImplementation $impl Either class name for lazy loading or already instantiated object
      * @return void
      */
-    public function register( $ifacever, $impl );
+    public function register( \FutoIn\AsyncSteps $as, $ifacever, $impl );
     
     /**
      * Process request, received for arbitrary channel, including unit-test generated
@@ -44,4 +44,16 @@ interface Executor {
      * @return void
      */
     public function checkAccess( \FutoIn\Executor\AsyncCompletion $async_completion, array $acd );
+    
+    /**
+     * initialized from cache (no need to register interfaces)
+     * @param $as AsyncSteps instance
+     */
+    public function initFromCache( \FutoIn\AsyncSteps $as );
+    
+    /**
+     * Call after all registrations are done to cache them
+     * @param $as AsyncSteps instance
+     */
+    public function cacheInit( \FutoIn\AsyncSteps $as );
 }

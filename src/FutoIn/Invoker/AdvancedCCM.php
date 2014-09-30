@@ -26,11 +26,11 @@ interface AdvancedCCM extends SimpleCCM
      * @param $as AsyncSteps instance
      * @param $cache_l1_endpoint endpoint URL to Cache L1 service
      */
-    public function initRegFromCache( \FutoIn\AsyncSteps $as, $cache_l1_endpoint );
+    public function initFromCache( \FutoIn\AsyncSteps $as, $cache_l1_endpoint );
     
     /**
      * Call after all registrations are done to cache them
      * @param $as AsyncSteps instance
      */
-    public function cacheReg( \FutoIn\AsyncSteps $as );
+    public function cacheInit( \FutoIn\AsyncSteps $as );
 }
