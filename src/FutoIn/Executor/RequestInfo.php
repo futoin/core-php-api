@@ -92,4 +92,16 @@ interface RequestInfo {
      * @param boolean $ignore Ignore user abort (yes/no)
      */
     public function ignoreInvokerAbort( $ignore = true );
+    
+    /**
+     * info() access through RequestInfo interface / get value
+     * @param $name State variable name
+     */
+    public function &__get( $name );
+    
+    /**
+     * info() access through RequestInfo interface / check value
+     * @param $name State variable name
+     */
+    public function __isset( $name );
 }

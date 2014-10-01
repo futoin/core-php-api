@@ -32,18 +32,18 @@ interface Executor {
     
     /**
      * Process request, received for arbitrary channel, including unit-test generated
-     * @param $async_completion - asynchronous completion interface
+     * @param $as - AsyncSteps interface
      * @return void
      */
-    public function process( \FutoIn\Executor\AsyncCompletion $async_completion );
+    public function process( \FutoIn\AsyncSteps $as );
     
     /**
      * A shortcut to check access through #acl interface
-     * @param $async_completion - asynchronous completion interface
+     * @param $as - AsyncSteps interface
      * @param $acd - Access Control Descriptor
      * @return void
      */
-    public function checkAccess( \FutoIn\Executor\AsyncCompletion $async_completion, array $acd );
+    public function checkAccess( \FutoIn\AsyncSteps $as, array $acd );
     
     /**
      * initialized from cache (no need to register interfaces)
