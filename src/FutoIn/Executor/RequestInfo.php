@@ -57,13 +57,13 @@ interface RequestInfo {
      * Get request object
      * @return arguments (object)
      */
-    public function request();
+    public function params();
     
     /**
      * Get response object
      * @return result data (object)
      */
-    public function response();
+    public function result();
     
     /**
      * Get info object
