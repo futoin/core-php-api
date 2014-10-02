@@ -41,6 +41,8 @@ interface RequestInfo {
     const INFO_RAW_RESPONSE = "RAW_RESPONSE";
     /** derived key object */
     const INFO_DERIVED_KEY = "DERIVED_KEY";
+    /** have raw upload (e.g. can open rawInput()) */
+    const INFO_HAVE_RAW_UPLOAD = "HAVE_RAW_UPLOAD";
 
     /** Security Levels - no authenticated */
     const SL_ANONYMOUS = "Anonymous";
