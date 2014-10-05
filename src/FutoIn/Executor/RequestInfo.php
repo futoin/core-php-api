@@ -23,10 +23,6 @@ interface RequestInfo {
     /** SourceAddress object of request external to current system
         (e.g. without *trusted* reverse proxies, gateways, etc.) */
     const INFO_CLIENT_ADDR = "CLIENT_ADDR";
-    /** User Agent, coming from HTTP headers or other source */
-    const INFO_USER_AGENT = "USER_AGENT";
-    /** array of strings */
-    const INFO_COOKIES = "COOKIES";
     /** boolean - is request coming through secure channel? */
     const INFO_SECURE_CHANNEL = "SECURE_CHANNEL";
     /** platform-specific timestamp of request processing start */
@@ -43,6 +39,10 @@ interface RequestInfo {
     const INFO_DERIVED_KEY = "DERIVED_KEY";
     /** have raw upload (e.g. can open rawInput()) */
     const INFO_HAVE_RAW_UPLOAD = "HAVE_RAW_UPLOAD";
+    /** have raw result (e.g. should open rawOutput()) */
+    const INFO_HAVE_RAW_RESULT = "HAVE_RAW_RESULT";
+    /** ChannelContext instance - communication channel context */
+    const INFO_CHANNEL_CONTEXT = "CHANNEL_CONTEXT";
 
     /** Security Levels - no authenticated */
     const SL_ANONYMOUS = "Anonymous";
@@ -87,13 +87,7 @@ interface RequestInfo {
      * Get reference to Executor
      * @return \FutoIn\Executor
      */
-    public function context();
-    
-    /**
-     * [un]mark request as ready to be canceled on Invoker abort (disconnect)
-     * @param boolean $ignore Ignore user abort (yes/no)
-     */
-    public function ignoreInvokerAbort( $ignore = true );
+    public function executor();
     
     /**
      * info() access through RequestInfo interface / get value

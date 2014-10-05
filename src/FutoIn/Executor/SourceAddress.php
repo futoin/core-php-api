@@ -18,6 +18,7 @@ namespace FutoIn\Executor;
 interface SourceAddress {
     const TYPE_IPv4 = "IPv4";
     const TYPE_IPv6 = "IPv6";
+    const TYPE_LOCAL = "LOCAL";
 
     /**
      * @return numeric address, no name lookup
@@ -25,7 +26,7 @@ interface SourceAddress {
     public function host();
     
     /**
-     * @return port
+     * @return port or local path/identifier
      */
     public function port();
     
