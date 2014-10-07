@@ -29,17 +29,20 @@ interface ChannelContext
      * TCP
      * UDP
      * any other - as non-standard extension
+     * @return string type identifier
      */
     public function type();
     
     /**
      * Check if current communication channel between Invoker and Executor is stateful
+     * @return boolean
      */
     public function isStateful();
     
     /**
      * Get channel state variables
      * @note state is persistent only for stateful protocols
+     * @return array of key-value pairs
      */
     public function state();
 
