@@ -94,6 +94,11 @@ interface AsyncSteps
     public function execute();
     
     /**
+     * Cancel execution of AsyncSteps
+     */
+    public function cancel();
+    
+    /**
      * Copy steps from other AsyncSteps, useful for sub-step cloning
      *
      * @param AsyncSteps $other Object to copy from
