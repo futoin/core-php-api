@@ -26,7 +26,7 @@ interface NativeInterface
      * @param map $params Parameters to pass to Executor
      * @return void
      */
-    public function call( \FutoIn\AsyncSteps $as, $name, $params );
+    public function call( \FutoIn\AsyncSteps $as, $name, $params, $upload_data=null, $download_stream=null, $timeout=null );
     
     /**
      * Get interface info
