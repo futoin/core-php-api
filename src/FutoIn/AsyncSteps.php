@@ -2,7 +2,6 @@
 /**
  * FutoIn AsyncSteps interface definition
  *
- * @package FutoIn\Core\PHP\API
  * @copyright 2014 FutoIn Project (http://futoin.org)
  * @author Andrey Galkin
  */
@@ -48,6 +47,7 @@ interface AsyncSteps
   
     /**
      * Call success() or add sub-step with success() depending on presence of other sub-steps
+     * @deprecated
      */
     public function successStep();
     
@@ -60,6 +60,7 @@ interface AsyncSteps
      * Set "error" state of current step execution
      *
      * @param string $name Type of error
+     * @param string $error_info Optional. Error info
      * \note Please see the specification for constraints
      * \see \FutoIn\Error
      */
@@ -92,11 +93,6 @@ interface AsyncSteps
      * Start execution of AsyncSteps
      */
     public function execute();
-    
-    /**
-     * Cancel execution of AsyncSteps
-     */
-    public function cancel();
     
     /**
      * Copy steps from other AsyncSteps, useful for sub-step cloning
@@ -136,4 +132,39 @@ interface AsyncSteps
      * @param $name State variable name
      */
     public function __unset( $name );
+    
+    /**
+     * Execute loop until *as.break()* is called
+     * @param callable $func loop body callable( as )
+     * @param string $label optional label to use for *as.break()* and *as.continue()* in inner loops
+     */
+    public function loop( callable $func, $label = null );
+    
+    /**
+     * For each *map* or *list* element call *func( as, key, value )*
+     * @param array $maplist
+     * @param callable $func loop body *func( as, key, value )*
+     * @param string $label optional label to use for *as.break()* and *as.continue()* in inner loops
+     */
+    public function forEach_( $maplist, callable $func, $label = null );
+    
+    /**
+     * Call *func(as, i)* for *count* times
+     * @param integer $count how many times to call the *func*
+     * @param callable $func loop body *func( as, key, value )*
+     * @param string $label optional label to use for *as.break()* and *as.continue()* in inner loops
+     */
+    public function repeat( $count, callable $func, $label = null );
+
+    /**
+     * Break execution of current loop, throws exception
+     * @param string $label unwind loops, until *label* named loop is exited
+     */
+    public function break_( $label = null );
+
+    /**
+     * Ccontinue loop execution from the next iteration, throws exception
+     * @param string $label break loops, until *label* named loop is found
+     */
+    public function continue_( $label = null );
 }

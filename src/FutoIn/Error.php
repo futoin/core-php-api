@@ -2,7 +2,6 @@
 /**
  * FutoIn Error definition
  *
- * @package FutoIn\Core\PHP\API
  * @copyright 2014 FutoIn Project (http://futoin.org)
  * @author Andrey Galkin
  */
@@ -96,4 +95,16 @@ class Error extends \Exception
      * Must be used only internally and should never travel in request message
      */
     const Timeout = "Timeout";
+
+    /**
+     * Loop Break called
+     * Must not be used directly.
+     */
+    const LoopBreak = "LoopBreak";
+
+    /**
+     * Loop Continue called
+     * Must not be used directly.
+     */
+    const LoopCont = "LoopCont";
 }
