@@ -17,6 +17,12 @@ namespace FutoIn\Invoker;
 interface NativeInterface
 {
     /**
+     * @event 'connect' - called on bi-directional channels when connection is established
+     * @event 'close' - called when interface is unregistered or CCM shutdown
+     * @event 'disconnect' - called on bi-directional channel on disconnect
+     */
+
+    /**
      * Call FutoIn interface function.
      * Result is passed through AsyncSteps.success( result )
      *
@@ -32,12 +38,6 @@ interface NativeInterface
      * @return \FutoIn\InterfaceInfo
      */
     public function ifaceInfo();
-    
-    /**
-     * Get FTN10 Burst Call interface
-     * @return BurstControl interface
-     */
-    public function burst();
     
     /**
      * Get iface wrapper with derived key accessor

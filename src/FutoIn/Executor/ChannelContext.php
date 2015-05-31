@@ -44,6 +44,21 @@ interface ChannelContext
      * @return array of key-value pairs
      */
     public function state();
+    
+    /**
+     * Register interface as implemented by client peer
+     * @param string $ifacever "iface:version" pair as per the spec
+     * @param array $options options to pass to AdvancedCCM.register()
+     * @return void
+     */
+    public function register( \FutoIn\AsyncSteps $as, $ifacever, $options );
+    
+    /**
+     * Get native interface wrapper for invocation of iface methods on client peer
+     * @param string $ifacever "iface:version" pair as per the spec
+     * @return Native interface for FutoIn interface
+     */
+    public function iface( $ifacever );
 
     /**
      * state() access through ChannelContext interface / set value

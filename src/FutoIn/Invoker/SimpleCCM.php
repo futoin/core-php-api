@@ -16,6 +16,13 @@ namespace FutoIn\Invoker;
  */
 interface SimpleCCM
 {
+    
+    /**
+     * @event 'register' ( name, ifacever, rawinfo ) - when new interface get registered
+     * @event 'unregister' ( name, rawinfo ) - when interface get unregistered
+     * @event 'close' - when CCM is shutdown
+     */
+
     /** Runtime iface resolution v1.x */
     const SVC_RESOVLER = '#resolver';
     /** AuthService v1.x */
@@ -26,12 +33,8 @@ interface SimpleCCM
     const SVC_ACL = '#acl';
     /** Audit Logging v1.x */
     const SVC_LOG = '#log';
-    /** cache v1.x (fast local, but small) */
-    const SVC_CACHE_L1 = "#cachel1";
-    /** cache v1.x (slower local, but large) */
-    const SVC_CACHE_L2 = "#cachel2";
-    /** cache v1.x (much slower and much larger) */
-    const SVC_CACHE_L3 = "#cachel3";
+    /** Cache v1.x prefix */
+    const SVC_CACHE_ = '#cache.';
 
     /**
      * Register FutoIn interface for later use.
@@ -43,8 +46,9 @@ interface SimpleCCM
      * @param string $ifacever As defined in the spec
      * @param string endpoint As defined in the spec (URI or any other meaningful designator)
      * @param mixed $credentials For low security authentication (non-MasterService)
+     * @param array $options optional, override global options of CCM
      */
-    public function register( \FutoIn\AsyncSteps $as, $name, $ifacever, $endpoint, $credentials=null );
+    public function register( \FutoIn\AsyncSteps $as, $name, $ifacever, $endpoint, $credentials=null, $options=null );
     
     /**
      * Get previously registered interface by name
@@ -73,28 +77,11 @@ interface SimpleCCM
     public function log();
     
     /**
-     * Get Burst Control (FTN10) interface
-     * @return Advanced Native Burst interface
-     */
-    public function burst();
-    
-    /**
      * Get Cache (FTN14) interface
+     * @param Arbitrary cache bucket
      * @return Advanced Native Cache system interface
      */
-    public function cacheL1();
-
-    /**
-     * Get Cache (FTN14) interface
-     * @return Advanced Native Cache system interface
-     */
-    public function cacheL2();
-
-    /**
-     * Get Cache (FTN14) interface
-     * @return Advanced Native Cache system interface
-     */
-    public function cacheL3();
+    public function cache( $bucket = 'default' );
     
     /**
      * Assert that interface registered under $name matches
@@ -107,4 +94,9 @@ interface SimpleCCM
      * Make $alias an alias for $name registration.
      */
     public function alias( $name, $alias );
+
+    /**
+     * Shutdown CCM processing
+     */
+    public function close();
 }

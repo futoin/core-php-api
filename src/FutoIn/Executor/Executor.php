@@ -37,6 +37,22 @@ interface Executor {
     public function process( \FutoIn\AsyncSteps $as );
     
     /**
+     * Entry point for Server-originated requests
+     * @param array info - internal CCM interface info
+     * @param object ftnreq - incoming FutoIn request object
+     * @param Callable send_executor_rsp( rsp ) - callback to send response
+     */
+    public function onEndpointRequest( $info, $ftnreq, $send_executor_rsp );
+    
+    /**
+     * Entry point for in-program originated requests. Process with maximum efficiency
+     * @param $as - AsyncSteps interface
+     * @param array info - internal CCM interface info
+     * @param object ftnreq - incoming FutoIn request object
+     */
+    public function onInternalRequest( $as, $info, $ftnreq );
+
+    /**
      * A shortcut to check access through #acl interface
      * @param $as - AsyncSteps interface
      * @param $acd - Access Control Descriptor

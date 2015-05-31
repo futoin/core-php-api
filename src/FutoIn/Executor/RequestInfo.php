@@ -48,11 +48,13 @@ interface RequestInfo {
     /** Security Levels - read-only authentication */
     const SL_INFO = "Info";
     /** Security Levels - regular strength of authentication */
-    const SL_SAFEOPS = "SafeOps";
+    const SL_SAFE_OPS = "SafeOps";
     /** Security Levels - strong authentication */
-    const SL_PRIVLEGED_OPS = "PrivilegedOps";
+    const SL_PRIVILEGED_OPS = "PrivilegedOps";
     /** Security Levels - exceptionally strong authentication */
     const SL_EXCEPTIONAL_OPS = "ExceptionalOps";
+    /** Security Levels - internal system call */
+    const SL_SYSTEM = "System";
     
     /**
      * Get request object
@@ -73,7 +75,7 @@ interface RequestInfo {
     public function info();
     
     /**
-     * @return return raw input stream or null, if FutoIn request comes in that stream
+     * @return return raw input stream or throws error
      */
     public function rawInput();
     
@@ -84,9 +86,26 @@ interface RequestInfo {
     
     /**
      * Get reference to Executor
-     * @return \FutoIn\Executor
+     * @return \FutoIn\Executor\Executor
      */
     public function executor();
+    
+    /**
+     * Get reference to Executor
+     * @return \FutoIn\Executor\ChannelContext
+     */
+    public function channel();    
+    
+    /**
+     * Set to abort request after specified timeout_ms from the moment of call.
+     * It must override any previous cancelAfter() call.
+     *
+     * @note it is different from as.setTimeout() as inner step timeout does 
+     * not override outer step timeout.
+     *
+     * @param integer timeout_ms - timeout in miliseconds to cancel after. 0 - disable timeout
+     */
+    public function cancelAfter( $timeout_ms );
     
     /**
      * info() access through RequestInfo interface / get value

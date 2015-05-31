@@ -35,7 +35,7 @@ interface SourceAddress {
     public function type();
     
     /**
-     * @return "Type:Host:Port"
+     * @return "Type:Host:Port" or "Type:Port"
      */
     public function asString();
 }
